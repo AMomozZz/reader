@@ -11,6 +11,10 @@ load_dotenv()
 tesseract_cmd_path = os.getenv('TESSERACT')
 temp_dir = os.getenv('TEMP_DIR')
 
+if not os.path.exists(temp_dir):
+    os.makedirs(temp_dir)
+    print(f"已创建临时文件夹：{temp_dir}")
+
 pytesseract.pytesseract.tesseract_cmd = tesseract_cmd_path
 
 # 配置文本转语音引擎
